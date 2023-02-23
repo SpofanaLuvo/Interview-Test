@@ -28,22 +28,34 @@ namespace InterviewTest.Controllers
 
         // GET: api/Heroes
         [HttpGet]
-        public IEnumerable<Hero> Get()
+        public IEnumerable<IHero> Get()
         {
             return this.heroes;
         }
 
         // GET: api/Heroes/5
         [HttpGet("{id}", Name = "Get")]
-        public Hero Get(int id)
+        public IHero Get(int id)
         {
             return this.heroes.FirstOrDefault();
         }
 
         // POST: api/Heroes
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IHero Post([FromBody] dynamic param)
         {
+            Hero getHero = new Hero();
+            string heroName = param["name"];
+            if (param["action"] == "evolve")
+            {
+                getHero = heroes.Where(z => z.name == heroName).FirstOrDefault();
+                getHero.evolve();
+            }
+            else
+            {
+                getHero = heroes.Where(z => z.name == heroName).FirstOrDefault();
+            }
+            return getHero;
         }
 
         // PUT: api/Heroes/5
@@ -52,7 +64,7 @@ namespace InterviewTest.Controllers
         {
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Heroes/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

@@ -1,0 +1,24 @@
+<h2 class="heading">Tour of Heroes</h2>
+<h4 class="heading" *ngIf="heroEvolved">Heroes evolved:</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Power</th>
+      <th>Strength</th>
+      <th>Intelligence</th>
+      <th>Stamina</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts" class="color-blue">
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.power }}</td>
+      <td>{{ contact.stats[0].value }}</td>
+      <td>{{ contact.stats[1].value }}</td>
+      <td>{{ contact.stats[2].value }}</td>
+      <td><button (click)="buttonClick(contact)">Evolve</button></td>
+    </tr>
+  </tbody>
+</table>
