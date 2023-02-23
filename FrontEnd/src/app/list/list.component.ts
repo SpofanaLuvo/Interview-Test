@@ -6,22 +6,22 @@ import { ApiService } from "../api-service.service";
   styleUrls: ["./list.component.scss"],
 })
 export class ListComponent implements OnInit {
-  contacts: any[];
+  heroes: any[];
   heroEvolved: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
-  buttonClick(contact: any) {
+  buttonClick(hero: any) {
     this.heroEvolved = true;
-    this.apiService.evolveContact(contact).subscribe((response: any[]) => {
+    this.apiService.evolveHero(hero).subscribe((response: any[]) => {
       console.log(JSON.stringify(response));
-      this.contacts = [];
-      this.contacts.push(response);
+      this.heroes = [];
+      this.heroes.push(response);
     });
   }
   ngOnInit() {
-    this.apiService.getContacts().subscribe((response: any[]) => {
-      this.contacts = response;
+    this.apiService.getHeroes().subscribe((response: any[]) => {
+      this.heroes = response;
     });
   }
 }

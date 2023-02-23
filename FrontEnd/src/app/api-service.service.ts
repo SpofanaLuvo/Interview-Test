@@ -10,12 +10,12 @@ export class ApiService {
   updatedList: any[];
   constructor(private http: HttpClient) {}
 
-  getContacts() {
+  getHeroes() {
     return this.http.get(this.apiEndpoint);
   }
 
-  evolveContact(contact: any) {
-    const payload = { name: contact.name, action: "evolve" };
+  evolveHero(hero: any) {
+    const payload = { name: hero.name, action: "evolve" };
     return this.http.post(this.apiEndpoint, payload);
   }
 }

@@ -12,13 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let contact of contacts" class="color-blue">
-      <td>{{ contact.name }}</td>
-      <td>{{ contact.power }}</td>
-      <td>{{ contact.stats[0].value }}</td>
-      <td>{{ contact.stats[1].value }}</td>
-      <td>{{ contact.stats[2].value }}</td>
-      <td><button (click)="buttonClick(contact)">Evolve</button></td>
+    <tr *ngFor="let hero of heroes" class="color-blue">
+      <td>{{ hero.name }}</td>
+      <td>{{ hero.power }}</td>
+      <td>{{ hero.stats[0].value }}</td>
+      <td>{{ hero.stats[1].value }}</td>
+      <td>{{ hero.stats[2].value }}</td>
+      <td><button (click)="buttonClick(hero)">Evolve</button></td>
     </tr>
   </tbody>
 </table>
